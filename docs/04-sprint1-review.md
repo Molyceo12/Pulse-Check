@@ -38,15 +38,15 @@ validation, and set up the CI pipeline.
   - Redis service container provided
 - Acceptance criteria: MET
 
+![Sprint 1 CI](assets/spring1ci.png)
+
 ## Test Results
 
-```
-Ran 8 tests in 0.089s
-
-OK
-```
-
 Full output: `docs/evidence/sprint1-test-results.txt`
+
+![Sprint 1 Tests](assets/testsspring1.png)
+
+![Sprint 1 Commits](assets/commitspring1.png)
 
 ## Total
 
