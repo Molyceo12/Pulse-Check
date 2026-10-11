@@ -31,6 +31,7 @@ Deliver unit tests for the register and heartbeat endpoints, add input validatio
   - Installs dependencies and runs all tests
   - Redis service container provided
 - **Acceptance criteria: MET**
+- **CI evidence:** Workflow passed on `main` (commit `d5dc8be`). Screenshot available in the Actions tab.
 
 ## Test Results
 ```
