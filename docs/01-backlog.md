@@ -1,106 +1,151 @@
+<div align="center">
+
 # Product Backlog
 
-Priority: MoSCoW. Estimates: Fibonacci story points (1, 2, 3, 5, 8). Reference story (= 2 points): Health endpoint — a small, self-contained feature with a single view and one test, easy to size reliably.
+<img src="https://img.shields.io/badge/Priority-MoSCoW-orange" />
+<img src="https://img.shields.io/badge/Estimates-Fibonacci%20points-orange" />
 
-| ID | Story | Priority | Points | Sprint |
-|---|---|---|---|---|
-| US1 | As a tester, I want unit tests for the register monitor endpoint so that I can verify it creates devices correctly and rejects bad input. | Must | 3 | Sprint 1 |
-| US2 | As a developer, I want validation that rejects negative timeouts and invalid emails so that corrupted data never enters the system. | Must | 2 | Sprint 1 |
-| US3 | As a tester, I want unit tests for the heartbeat endpoint so that I can verify the watchdog timer is reset and unknown devices return 404. | Must | 2 | Sprint 1 |
-| US4 | As an operator, I want a `/health/` endpoint returning `{"status": "ok"}` so that infrastructure can verify the API is running. | Should | 2 | Sprint 2 |
-| US5 | As a developer, I want console logging for requests and errors so that debugging is easier during development. | Should | 2 | Sprint 2 |
-| US6 | As a tester, I want unit tests for the pause monitoring endpoint so that I can verify devices are correctly paused. | Should | 2 | Sprint 2 |
-| US7 | As a tester, I want unit tests for the status endpoint so that I can verify device health is returned correctly. | Should | 2 | Sprint 2 |
-| US8 | As a developer, I want alert emails sent through a real backend so that operators are notified when devices go silent. | Could | 3 | Backlog |
+</div>
 
-## Sprint 1
+<details>
+<summary><b>📐 Estimating Method</b></summary>
 
-| ID | Story | Points |
-|---|---|---|
-| US1 | Unit tests for register monitor endpoint | 3 |
-| US2 | Validation for negative timeouts and invalid emails | 2 |
-| US3 | Unit tests for heartbeat endpoint | 2 |
+<p>Priority: <b>MoSCoW</b> (Must / Should / Could / Won't). Estimates: Fibonacci story points (1, 2, 3, 5, 8). Reference story (= 2 points): <b>Health endpoint</b> — a small, self-contained feature with a single view and one test, easy to size reliably.</p>
 
-**Sprint 1 total: 7 points**
+</details>
 
-## Sprint 2
+<details open>
+<summary><b>📊 Story Table</b></summary>
 
-| ID | Story | Points |
-|---|---|---|
-| US4 | Health endpoint (`/health/`) | 2 |
-| US5 | Console logging for requests and errors | 2 |
-| US6 | Unit tests for pause monitoring endpoint | 2 |
-| US7 | Unit tests for status endpoint | 2 |
+<table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:0.9em;">
+<thead>
+<tr style="background:#1e293b;color:#f8fafc;">
+<th style="padding:10px;text-align:left;">ID</th>
+<th style="padding:10px;text-align:left;">Story</th>
+<th style="padding:10px;text-align:left;">Priority</th>
+<th style="padding:10px;text-align:center;">Points</th>
+<th style="padding:10px;text-align:center;">Sprint</th>
+</tr>
+</thead>
+<tbody>
 
-**Sprint 2 total: 8 points**
+<tr style="background:#fef2f2;"><td style="padding:8px;"><b>US1</b></td><td style="padding:8px;">Unit tests for register monitor endpoint</td><td style="padding:8px;"><span style="background:#fee2e2;color:#991b1b;padding:2px 8px;border-radius:12px;font-size:0.8em;">Must</span></td><td style="padding:8px;text-align:center;">3</td><td style="padding:8px;text-align:center;">✅ Sprint 1</td></tr>
 
-## Backlog (not planned)
+<tr style="background:#fef2f2;"><td style="padding:8px;"><b>US2</b></td><td style="padding:8px;">Validation for negative timeouts and invalid emails</td><td style="padding:8px;"><span style="background:#fee2e2;color:#991b1b;padding:2px 8px;border-radius:12px;font-size:0.8em;">Must</span></td><td style="padding:8px;text-align:center;">2</td><td style="padding:8px;text-align:center;">✅ Sprint 1</td></tr>
 
-| ID | Story | Points |
-|---|---|---|
-| US8 | Alert email backend | 3 |
+<tr style="background:#fef2f2;"><td style="padding:8px;"><b>US3</b></td><td style="padding:8px;">Unit tests for heartbeat endpoint</td><td style="padding:8px;"><span style="background:#fee2e2;color:#991b1b;padding:2px 8px;border-radius:12px;font-size:0.8em;">Must</span></td><td style="padding:8px;text-align:center;">2</td><td style="padding:8px;text-align:center;">✅ Sprint 1</td></tr>
 
-## Prioritisation rationale
+<tr style="background:#dbeafe;"><td style="padding:8px;"><b>US4</b></td><td style="padding:8px;">Health endpoint (<code>/health/</code>)</td><td style="padding:8px;"><span style="background:#dbeafe;color:#1e40af;padding:2px 8px;border-radius:12px;font-size:0.8em;">Should</span></td><td style="padding:8px;text-align:center;">2</td><td style="padding:8px;text-align:center;">✅ Sprint 2</td></tr>
 
-- **Must first**: Tests and validation protect the existing app from regressions and bad data, which is essential before adding new features.
-- **Should next**: Health endpoint and logging are low-effort, high-value operational improvements that work for every future feature.
-- **Could last**: Alert email backend depends on external infrastructure (SMTP) and is lower priority for a first working prototype.
+<tr style="background:#dbeafe;"><td style="padding:8px;"><b>US5</b></td><td style="padding:8px;">Console logging for requests and errors</td><td style="padding:8px;"><span style="background:#dbeafe;color:#1e40af;padding:2px 8px;border-radius:12px;font-size:0.8em;">Should</span></td><td style="padding:8px;text-align:center;">2</td><td style="padding:8px;text-align:center;">✅ Sprint 2</td></tr>
 
-## Acceptance criteria
+<tr style="background:#dbeafe;"><td style="padding:8px;"><b>US6</b></td><td style="padding:8px;">Unit tests for pause monitoring endpoint</td><td style="padding:8px;"><span style="background:#dbeafe;color:#1e40af;padding:2px 8px;border-radius:12px;font-size:0.8em;">Should</span></td><td style="padding:8px;text-align:center;">2</td><td style="padding:8px;text-align:center;">✅ Sprint 2</td></tr>
 
-### US1 — Unit tests for register monitor endpoint
-- **Given** a POST request to `/register_monitor` with valid data
-- **When** the endpoint is called
-- **Then** a `201` response is returned and the device is saved in the database
-- **Given** a POST request with a negative `timeout`
-- **When** the endpoint is called
-- **Then** a `400` error is returned and no device is created (error case)
+<tr style="background:#dbeafe;"><td style="padding:8px;"><b>US7</b></td><td style="padding:8px;">Unit tests for status endpoint</td><td style="padding:8px;"><span style="background:#dbeafe;color:#1e40af;padding:2px 8px;border-radius:12px;font-size:0.8em;">Should</span></td><td style="padding:8px;text-align:center;">2</td><td style="padding:8px;text-align:center;">✅ Sprint 2</td></tr>
 
-### US2 — Validation for negative timeouts and invalid emails
-- **Given** a POST request with `timeout` set to `-5`
-- **When** the endpoint is called
-- **Then** a `400` error is returned with a clear validation message (error case)
-- **Given** a POST request with an invalid `alert_email`
-- **When** the endpoint is called
-- **Then** a `400` error is returned and the device is not saved (error case)
+<tr style="background:#f1f5f9;"><td style="padding:8px;"><b>US8</b></td><td style="padding:8px;">Alert email backend</td><td style="padding:8px;"><span style="background:#e2e8f0;color:#475569;padding:2px 8px;border-radius:12px;font-size:0.8em;">Could</span></td><td style="padding:8px;text-align:center;">3</td><td style="padding:8px;text-align:center;">⏳ Backlog</td></tr>
 
-### US3 — Unit tests for heartbeat endpoint
-- **Given** a registered device exists
-- **When** a POST request is sent to `/monitors/{id}/heartbeat`
-- **Then** the device's `last_heartbeat` is updated and a `200` response is returned
-- **Given** a device that does not exist
-- **When** a POST request is sent to its heartbeat endpoint
-- **Then** a `404` error is returned (error case)
+</tbody>
+</table>
 
-### US4 — Health endpoint
-- **Given** the API is running
-- **When** a GET request is sent to `/health/`
-- **Then** `{"status": "ok"}` is returned with HTTP `200` (error case: endpoint must always respond)
+</details>
 
-### US5 — Console logging for requests and errors
-- **Given** logging is configured in Django settings
-- **When** any request is handled
-- **Then** a log line with the request method and path is printed to the console
-- **Given** an error occurs during request handling
-- **Then** an error-level log line is printed to the console (error case)
+<details>
+<summary><b>🧮 Sprint Totals</b></summary>
 
-### US6 — Unit tests for pause monitoring endpoint
-- **Given** an active device exists
-- **When** a POST request is sent to `/monitors/{id}/pause`
-- **Then** the device status is changed to `paused` and a success response is returned
-- **Given** a device that is already paused
-- **When** a pause request is sent
-- **Then** a `400` error is returned because the device is not active (error case)
+<ul>
+<li><b>Sprint 1:</b> 7 points (US1, US2, US3) — <span style="color:#16a34a;">complete</span></li>
+<li><b>Sprint 2:</b> 8 points (US4, US5, US6, US7) — <span style="color:#16a34a;">complete</span></li>
+<li><b>Backlog:</b> 3 points (US8) — <span style="color:#64748b;">not planned</span></li>
+</ul>
 
-### US7 — Unit tests for status endpoint
-- **Given** a registered device exists
-- **When** a GET request is sent to `/monitors/{id}/status`
-- **Then** the device's current status, timeout, last heartbeat, and alert email are returned
-- **Given** a device that does not exist
-- **When** a GET request is sent to its status endpoint
-- **Then** a `404` error is returned (error case)
+</details>
 
-### US8 — Alert email backend
-- **Given** a device misses its heartbeat window
-- **When** the watchdog timer fires
-- **Then** an email is sent to the device's `alert_email` using a real backend (error case: email must not crash the worker)
+<details>
+<summary><b>💡 Prioritisation Rationale</b></summary>
+
+<ol>
+<li><b>Must first:</b> Tests and validation protect the existing app from regressions and bad data, which is essential before adding new features.</li>
+<li><b>Should next:</b> Health endpoint and logging are low-effort, high-value operational improvements that work for every future feature.</li>
+<li><b>Could last:</b> Alert email backend depends on external infrastructure (SMTP) and is lower priority for a first working prototype.</li>
+</ol>
+
+</details>
+
+<details open>
+<summary><b>📝 Acceptance Criteria</b></summary>
+
+<div style="background:#fef2f2;border-left:4px solid #ef4444;padding:12px 16px;border-radius:6px;margin:10px 0;">
+<b>US1 — Unit tests for register monitor endpoint</b><br>
+<b>Given</b> a POST request to <code>/register_monitor</code> with valid data<br>
+<b>When</b> the endpoint is called<br>
+<b>Then</b> a <code>201</code> response is returned and the device is saved in the database<br>
+<b>Given</b> a POST request with a negative <code>timeout</code><br>
+<b>When</b> the endpoint is called<br>
+<b>Then</b> a <code>400</code> error is returned and no device is created <span style="color:#ef4444;">(error case)</span>
+</div>
+
+<div style="background:#fef2f2;border-left:4px solid #ef4444;padding:12px 16px;border-radius:6px;margin:10px 0;">
+<b>US2 — Validation for negative timeouts and invalid emails</b><br>
+<b>Given</b> a POST request with <code>timeout</code> set to <code>-5</code><br>
+<b>When</b> the endpoint is called<br>
+<b>Then</b> a <code>400</code> error is returned with a clear validation message <span style="color:#ef4444;">(error case)</span><br>
+<b>Given</b> a POST request with an invalid <code>alert_email</code><br>
+<b>When</b> the endpoint is called<br>
+<b>Then</b> a <code>400</code> error is returned and the device is not saved <span style="color:#ef4444;">(error case)</span>
+</div>
+
+<div style="background:#fef2f2;border-left:4px solid #ef4444;padding:12px 16px;border-radius:6px;margin:10px 0;">
+<b>US3 — Unit tests for heartbeat endpoint</b><br>
+<b>Given</b> a registered device exists<br>
+<b>When</b> a POST request is sent to <code>/monitors/{id}/heartbeat</code><br>
+<b>Then</b> the device's <code>last_heartbeat</code> is updated and a <code>200</code> response is returned<br>
+<b>Given</b> a device that does not exist<br>
+<b>When</b> a POST request is sent to its heartbeat endpoint<br>
+<b>Then</b> a <code>404</code> error is returned <span style="color:#ef4444;">(error case)</span>
+</div>
+
+<div style="background:#dbeafe;border-left:4px solid #0ea5e9;padding:12px 16px;border-radius:6px;margin:10px 0;">
+<b>US4 — Health endpoint</b><br>
+<b>Given</b> the API is running<br>
+<b>When</b> a GET request is sent to <code>/health/</code><br>
+<b>Then</b> <code>{"status": "ok"}</code> is returned with HTTP <code>200</code> <span style="color:#0ea5e9;">(error case: endpoint must always respond)</span>
+</div>
+
+<div style="background:#dbeafe;border-left:4px solid #0ea5e9;padding:12px 16px;border-radius:6px;margin:10px 0;">
+<b>US5 — Console logging for requests and errors</b><br>
+<b>Given</b> logging is configured in Django settings<br>
+<b>When</b> any request is handled<br>
+<b>Then</b> a log line with the request method and path is printed to the console<br>
+<b>Given</b> an error occurs during request handling<br>
+<b>Then</b> an error-level log line is printed to the console <span style="color:#0ea5e9;">(error case)</span>
+</div>
+
+<div style="background:#dbeafe;border-left:4px solid #0ea5e9;padding:12px 16px;border-radius:6px;margin:10px 0;">
+<b>US6 — Unit tests for pause monitoring endpoint</b><br>
+<b>Given</b> an active device exists<br>
+<b>When</b> a POST request is sent to <code>/monitors/{id}/pause</code><br>
+<b>Then</b> the device status is changed to <code>paused</code> and a success response is returned<br>
+<b>Given</b> a device that is already paused<br>
+<b>When</b> a pause request is sent<br>
+<b>Then</b> a <code>400</code> error is returned because the device is not active <span style="color:#0ea5e9;">(error case)</span>
+</div>
+
+<div style="background:#dbeafe;border-left:4px solid #0ea5e9;padding:12px 16px;border-radius:6px;margin:10px 0;">
+<b>US7 — Unit tests for status endpoint</b><br>
+<b>Given</b> a registered device exists<br>
+<b>When</b> a GET request is sent to <code>/monitors/{id}/status</code><br>
+<b>Then</b> the device's current status, timeout, last heartbeat, and alert email are returned<br>
+<b>Given</b> a device that does not exist<br>
+<b>When</b> a GET request is sent to its status endpoint<br>
+<b>Then</b> a <code>404</code> error is returned <span style="color:#0ea5e9;">(error case)</span>
+</div>
+
+<div style="background:#fef3c7;border-left:4px solid #f59e0b;padding:12px 16px;border-radius:6px;margin:10px 0;">
+<b>US8 — Alert email backend</b><br>
+<b>Given</b> a device misses its heartbeat window<br>
+<b>When</b> the watchdog timer fires<br>
+<b>Then</b> an email is sent to the device's <code>alert_email</code> using a real backend <span style="color:#f59e0b;">(error case: email must not crash the worker)</span>
+</div>
+
+</details>

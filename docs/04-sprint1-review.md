@@ -1,51 +1,83 @@
+<div align="center">
+
 # Sprint 1 Review
 
-## Sprint Goal
+<img src="https://img.shields.io/badge/Status-Complete-brightgreen" />
+<img src="https://img.shields.io/badge/Points-7%2F7-brightgreen" />
+<img src="https://img.shields.io/badge/Tests-8%20Passing-brightgreen" />
+<img src="https://img.shields.io/badge/CI-Green-success" />
+
+</div>
+
+<details>
+<summary><b>📋 Sprint Goal</b></summary>
+
 Deliver unit tests for the register and heartbeat endpoints, add input validation, and set up the CI pipeline.
 
-## Completed Stories
+</details>
 
-### US1 — Unit tests for register monitor endpoint (3 points)
-- `app/tests/test_register.py` — 2 tests
-  - Valid registration returns 201 and creates the device
-  - Negative timeout returns 400 and no device is created
-- **Acceptance criteria: MET**
+<details>
+<summary><b>✅ Completed Stories — 7 of 7 points</b></summary>
 
-### US2 — Validation for negative timeouts and invalid emails (2 points)
-- `app/tests/test_validation.py` — 4 tests
-  - Serializer rejects timeout <= 0
-  - Serializer rejects blank device ID
-  - Serializer rejects malformed email
-  - API returns 400 for invalid email via register endpoint
-- **Acceptance criteria: MET**
+<br>
 
-### US3 — Unit tests for heartbeat endpoint (2 points)
-- `app/tests/test_heartbeat.py` — 2 tests
-  - Heartbeat updates last_heartbeat and returns success
-  - Unknown device returns 404
-- **Acceptance criteria: MET**
+<div style="background:#fef2f2;border-left:4px solid #ef4444;padding:12px 16px;border-radius:6px;margin:10px 0;">
+<b>US1 — Register Monitor Tests</b> <span style="color:#ef4444;">· 3 points</span><br>
+Tests: <code>test_register_creates_device_successfully</code>, <code>test_register_rejects_negative_timeout</code><br>
+<b>Acceptance criteria: MET</b>
+</div>
 
-### CI Pipeline
-- `.github/workflows/ci.yml` — GitHub Actions workflow
-  - Runs on push and pull request to `main`
-  - Installs dependencies and runs all tests
-  - Redis service container provided
-- **Acceptance criteria: MET**
-- **CI evidence:** Workflow passed on `main` (commit `d5dc8be`). Screenshot available in the Actions tab.
+<div style="background:#fef2f2;border-left:4px solid #ef4444;padding:12px 16px;border-radius:6px;margin:10px 0;">
+<b>US2 — Validation Tests</b> <span style="color:#ef4444;">· 2 points</span><br>
+Tests: <code>test_negative_timeout_rejected</code>, <code>test_empty_id_rejected</code>, <code>test_invalid_email_rejected</code>, <code>test_endpoint_rejects_invalid_email</code><br>
+<b>Acceptance criteria: MET</b>
+</div>
 
-## Test Results
-```
-Ran 8 tests in 0.089s
+<div style="background:#fef2f2;border-left:4px solid #ef4444;padding:12px 16px;border-radius:6px;margin:10px 0;">
+<b>US3 — Heartbeat Tests</b> <span style="color:#ef4444;">· 2 points</span><br>
+Tests: <code>test_heartbeat_resets_timer_and_updates_status</code>, <code>test_heartbeat_returns_404_for_unknown_device</code><br>
+<b>Acceptance criteria: MET</b>
+</div>
+
+<div style="background:#f0f9ff;border-left:4px solid #0ea5e9;padding:12px 16px;border-radius:6px;margin:10px 0;">
+<b>CI Pipeline</b> <span style="color:#0ea5e9;">· GitHub Actions</span><br>
+<code>.github/workflows/ci.yml</code> — runs on push and PR with Redis service container<br>
+<b>Acceptance criteria: MET</b>
+</div>
+
+</details>
+
+<details>
+<summary><b>🧪 Test Results</b></summary>
+
+<pre style="background:#0f172a;color:#e2e8f0;padding:16px;border-radius:8px;overflow-x:auto;font-size:13px;line-height:1.5;"><code>Ran 8 tests in 0.089s
+
 OK
-```
 
-Full output: `docs/evidence/sprint1-test-results.txt`
+System check identified no issues (0 silenced).</code></pre>
 
-## Total: 7 of 7 points delivered
+Full output: <code>docs/evidence/sprint1-test-results.txt</code>
 
-## Out of Scope (not started)
-- Health endpoint (`/health/`)
-- Console logging
-- Pause monitoring tests
-- Status endpoint tests
-- Alert email backend
+</details>
+
+<details>
+<summary><b>🔗 Files Changed</b></summary>
+
+<ul>
+<li><code>.github/workflows/ci.yml</code> — CI workflow</li>
+<li><code>app/tests/test_register.py</code> — US1 tests</li>
+<li><code>app/tests/test_heartbeat.py</code> — US3 tests</li>
+<li><code>app/tests/test_validation.py</code> — US2 tests</li>
+<li><code>pulse_check/test_settings.py</code> — SQLite test settings</li>
+<li><code>docs/04-sprint1-review.md</code> — this file</li>
+<li><code>docs/05-sprint1-retrospective.md</code> — retro</li>
+</ul>
+
+</details>
+
+<details>
+<summary><b>⚠️ Out of Scope</b></summary>
+
+Health endpoint, console logging, pause/status tests, and alert email backend were not started.
+
+</details>
