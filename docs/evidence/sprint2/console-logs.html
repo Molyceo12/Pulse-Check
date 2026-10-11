@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body { background: #0f172a; color: #e2e8f0; font-family: monospace; padding: 20px; }
+.warn { color: #fbbf24; }
+.err { color: #f87171; font-weight: bold; }
+.white { color: #e2e8f0; }
+.border {
+  color: #f87171;
+  letter-spacing: 2px;
+  font-size: 14px;
+}
+</style>
+</head>
+<body>
+
+<div class="border">::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</div>
+<div class="err">web-1 | [ERROR] 2026-10-11 17:12:25,649 app.views - POST /monitors/unknown/heartbeat - error: No Monitor matches the given query.</div>
+<div class="white">web-1 | Not Found: /monitors/unknown/heartbeat</div>
+<div class="warn">web-1 | [WARNING] 2026-10-11 17:12:25,649 django.request - Not Found: /monitors/unknown/heartbeat</div>
+<div class="white">web-1 | [11/Oct/2026 17:12:25] "POST /monitors/unknown/heartbeat HTTP/1.1" 404 48</div>
+<div class="border">::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</div>
+
+<div style="margin-top: 16px;">
+<div class="err">web-1 | [ERROR] 2026-10-11 17:12:26,956 app.views - POST /monitors/unknown/heartbeat - error: No Monitor matches the given query.</div>
+<div class="white">web-1 | Not Found: /monitors/unknown/heartbeat</div>
+<div class="warn">web-1 | [WARNING] 2026-10-11 17:12:26,957 django.request - Not Found: /monitors/unknown/heartbeat</div>
+<div class="white">web-1 | [11/Oct/2026 17:12:26] "POST /monitors/unknown/heartbeat HTTP/1.1" 404 48</div>
+</div>
+
+<div class="border" style="margin-top: 16px;">::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</div>
+<div class="err">web-1 | [ERROR] 2026-10-11 17:22:26,400 app.views - POST /monitors/unknown/heartbeat - error: No Monitor matches the given query.</div>
+<div class="white">web-1 | Not Found: /monitors/unknown/heartbeat</div>
+<div class="warn">web-1 | [WARNING] 2026-10-11 17:22:26,402 django.request - Not Found: /monitors/unknown/heartbeat</div>
+<div class="white">web-1 | [11/Oct/2026 17:22:26] "POST /monitors/unknown/heartbeat HTTP/1.1" 404 48</div>
+<div class="border">::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</div>
+
+</body>
+</html>

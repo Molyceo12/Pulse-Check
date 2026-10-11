@@ -48,13 +48,11 @@ and status endpoints.
 
 ## Test Results
 
-```
-Ran 17 tests in 0.101s
-
-OK
-```
-
 Full output: `docs/evidence/sprint2-test-results.txt`
+
+![Sprint 2 Tests](assets/testspring2.png)
+
+![Sprint 2 Commits](assets/commitspring2.png)
 
 ## Total
 
