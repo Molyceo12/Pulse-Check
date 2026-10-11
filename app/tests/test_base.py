@@ -13,9 +13,12 @@ class BaseMonitorTestCase(TestCase):
     def setUp(self):
         super().setUp()
         self.client = APIClient()
-        patcher_cache = patch('app.views.cache.set')
-        patcher_timer = patch('app.views.start_monitor_timer')
-        self.mock_cache = patcher_cache.start()
-        self.mock_timer = patcher_timer.start()
-        self.addCleanup(patcher_cache.stop)
-        self.addCleanup(patcher_timer.stop)
+        patchers = [
+            patch('app.views.cache.set'),
+            patch('app.views.cache.delete'),
+            patch('app.views.start_monitor_timer'),
+            patch('app.views.cancel_monitor_timer'),
+        ]
+        self.mocks = [p.start() for p in patchers]
+        for p in patchers:
+            self.addCleanup(p.stop)
