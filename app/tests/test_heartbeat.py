@@ -1,14 +1,12 @@
-from unittest.mock import patch
-from django.test import TestCase
-from rest_framework.test import APIClient
+from app.tests.test_base import BaseMonitorTestCase
 from app.models import Monitor
 
 
-class HeartbeatTests(TestCase):
+class HeartbeatTests(BaseMonitorTestCase):
     """US3: Unit tests for the heartbeat endpoint."""
 
     def setUp(self):
-        self.client = APIClient()
+        super().setUp()
         Monitor.objects.create(
             id='device-01',
             timeout=60,
@@ -16,9 +14,7 @@ class HeartbeatTests(TestCase):
             status=Monitor.Status.ACTIVE
         )
 
-    @patch('app.views.cache.set')
-    @patch('app.views.start_monitor_timer')
-    def test_heartbeat_resets_timer_and_updates_status(self, mock_timer, mock_cache):
+    def test_heartbeat_resets_timer_and_updates_status(self):
         """Heartbeat updates last_heartbeat and returns success."""
         monitor = Monitor.objects.get(id='device-01')
         monitor.status = Monitor.Status.DOWN
