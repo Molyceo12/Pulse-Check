@@ -1,0 +1,108 @@
+﻿.\venv\Scripts\python : Creating test database for alias 'default' 
+('file:memorydb_default?mode=memory&cache=shared')...
+At line:4 char:117
++ ... _settings"; .\venv\Scripts\python manage.py test app.tests -v 2 2>&1  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Creating test d...che=shared')...:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Found 17 test(s).
+Operations to perform:
+  Synchronize unmigrated apps: corsheaders, messages, rest_framework, staticfiles
+  Apply all migrations: admin, app, auth, contenttypes, sessions
+Synchronizing apps without migrations:
+  Creating tables...
+    Running deferred SQL...
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying app.0001_initial... OK
+  Applying app.0002_monitor_task_id... OK
+  Applying app.0003_alter_monitor_last_heartbeat_alter_monitor_timeout... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+test_health_returns_ok (app.tests.test_health_logging.HealthEndpointTests.test_health_returns_ok)
+GET /health/ returns {"status": "ok"} with HTTP 200. ... 
+C:\Users\PC\Desktop\amalitech\projects\Pulse-Check\venv\Lib\site-packages\django\core\handlers\base.py:63: 
+UserWarning: No directory at: C:\Users\PC\Desktop\amalitech\projects\Pulse-Check\staticfiles\
+  mw_instance = middleware(adapted_handler)
+[INFO] 2026-10-11 12:14:07,314 app.views - GET /health - health check requested
+ok
+test_error_log_emits_at_error_level (app.tests.test_health_logging.LoggingTests.test_error_log_emits_at_error_level)
+The app logger can emit ERROR-level messages. ... ok
+test_health_endpoint_logs_request (app.tests.test_health_logging.LoggingTests.test_health_endpoint_logs_request)
+GET /health/ produces an INFO log line. ... ok
+test_heartbeat_resets_timer_and_updates_status 
+(app.tests.test_heartbeat.HeartbeatTests.test_heartbeat_resets_timer_and_updates_status)
+Heartbeat updates last_heartbeat and returns success. ... [INFO] 2026-10-11 12:14:07,324 app.views - POST 
+/monitors/device-01/heartbeat - heartbeat received for device-01
+ok
+test_heartbeat_returns_404_for_unknown_device 
+(app.tests.test_heartbeat.HeartbeatTests.test_heartbeat_returns_404_for_unknown_device)
+Unknown device returns 404. ... [ERROR] 2026-10-11 12:14:07,327 app.views - POST /monitors/unknown/heartbeat - error: 
+No Monitor matches the given query.
+[WARNING] 2026-10-11 12:14:07,328 django.request - Not Found: /monitors/unknown/heartbeat
+ok
+test_pause_already_paused_returns_success 
+(app.tests.test_pause.PauseMonitoringTests.test_pause_already_paused_returns_success)
+Pausing an already paused device returns success. ... ok
+test_pause_sets_status_to_paused (app.tests.test_pause.PauseMonitoringTests.test_pause_sets_status_to_paused)
+POST /monitors/{id}/pause sets status to paused. ... [INFO] 2026-10-11 12:14:07,336 app.views - POST 
+/monitors/device-01/pause - monitoring paused for device-01
+ok
+test_pause_unknown_device_returns_404 (app.tests.test_pause.PauseMonitoringTests.test_pause_unknown_device_returns_404)
+Pausing an unknown device returns 404. ... [WARNING] 2026-10-11 12:14:07,340 django.request - Not Found: 
+/monitors/unknown/pause
+ok
+test_register_creates_device_successfully 
+(app.tests.test_register.RegisterMonitorTests.test_register_creates_device_successfully)
+Valid registration returns 201 and creates the device. ... [INFO] 2026-10-11 12:14:07,386 app.views - POST 
+/register_monitor - registered device device-01
+ok
+test_register_rejects_negative_timeout 
+(app.tests.test_register.RegisterMonitorTests.test_register_rejects_negative_timeout)
+Negative timeout returns 400 and no device is created. ... [WARNING] 2026-10-11 12:14:07,392 django.request - Bad 
+Request: /register_monitor
+ok
+test_environment_setup_works (app.tests.test_smoke.EnvironmentSmokeTests.test_environment_setup_works)
+Trivial test to confirm APIClient, mocks, and DB all work. ... ok
+test_status_returns_404_for_unknown_device 
+(app.tests.test_status.StatusEndpointTests.test_status_returns_404_for_unknown_device)
+GET /monitors/{id}/status returns 404 for unknown device. ... [WARNING] 2026-10-11 12:14:07,398 django.request - Not 
+Found: /monitors/unknown/status
+ok
+test_status_returns_device_details (app.tests.test_status.StatusEndpointTests.test_status_returns_device_details)
+GET /monitors/{id}/status returns device health data. ... ok
+test_empty_id_rejected (app.tests.test_validation.ValidationTests.test_empty_id_rejected)
+Serializer rejects blank device ID. ... ok
+test_endpoint_rejects_invalid_email (app.tests.test_validation.ValidationTests.test_endpoint_rejects_invalid_email)
+API returns 400 for invalid email via the register endpoint. ... [WARNING] 2026-10-11 12:14:07,406 django.request - 
+Bad Request: /register_monitor
+ok
+test_invalid_email_rejected (app.tests.test_validation.ValidationTests.test_invalid_email_rejected)
+Serializer rejects malformed email addresses. ... ok
+test_negative_timeout_rejected (app.tests.test_validation.ValidationTests.test_negative_timeout_rejected)
+Serializer rejects timeout <= 0. ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.101s
+
+OK
+Destroying test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+
+  Applying sessions.0001_initial... OK
+System check identified no issues (0 silenced).
