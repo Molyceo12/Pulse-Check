@@ -1,5 +1,6 @@
+from unittest.mock import patch
 from django.test import TestCase
-from rest_framework.test import APITestClient
+from rest_framework.test import APIClient
 from app.models import Monitor
 
 
@@ -7,10 +8,12 @@ class RegisterMonitorTests(TestCase):
     """US1: Unit tests for the register monitor endpoint."""
 
     def setUp(self):
-        self.client = APITestClient()
+        self.client = APIClient()
         self.url = '/register_monitor'
 
-    def test_register_creates_device_successfully(self):
+    @patch('app.views.cache.set')
+    @patch('app.views.start_monitor_timer')
+    def test_register_creates_device_successfully(self, mock_timer, mock_cache):
         """Valid registration returns 201 and creates the device."""
         payload = {
             'id': 'device-01',
